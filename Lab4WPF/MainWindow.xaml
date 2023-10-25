@@ -1,0 +1,55 @@
+﻿<Window x:Class="Lab4WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab4WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" MinHeight="500" MinWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.8*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" ItemsSource="{Binding Abilities}" SelectedItem="{Binding SelectedAbility}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                        <TextBlock Text="Описание:" />
+                        <TextBlock Text="{Binding Path=Desc}" />
+                        <TextBlock Text="Стоимость маны:" />
+                        <TextBlock Text="{Binding Path=Manacost}" />
+                        <TextBlock Text="Урон:" />
+                        <TextBlock Text="{Binding Path=Damage}" />
+                        <TextBlock Text="Время перезарядки:" />
+                        <TextBlock Text="{Binding Path=Reloadinsec}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <ToggleButton Content="Обновить все данные" Margin="0,20,-0.2,0" Width="186" IsChecked="{Binding UpdateAbility}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28"/>
+            <TextBlock Text="Нахождение элемента:" FontSize="20"  />
+            <TextBox Height="24" TextWrapping="Wrap" Text="{Binding Path=IDFind}" Margin="0,20,-0.2,0" Width="200" HorizontalAlignment="Center"/>
+            <ToggleButton Content="Найти по ID" Margin="0,20,-0.2,0" Width="186" IsChecked="{Binding FindAbility}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28"/>
+            <TextBlock Text="Добавление элемента:" FontSize="20"  />
+            <TextBlock Text="Название:" FontSize="15" HorizontalAlignment="Center" />
+            <TextBox Height="24" TextWrapping="Wrap" Text="{Binding Path=Nameadd}" Margin="0,0,-0.2,0" Width="200" HorizontalAlignment="Center"/>
+            <TextBlock Text="Описание:" FontSize="15" HorizontalAlignment="Center" />
+            <TextBox Height="24" TextWrapping="Wrap" Text="{Binding Path=Descadd}" Margin="0,0,-0.2,0" Width="200" HorizontalAlignment="Center"/>
+            <TextBlock Text="Стоимость маны:" FontSize="15" HorizontalAlignment="Center" />
+            <TextBox Height="24" TextWrapping="Wrap" Text="{Binding Path=Manacostadd}" Margin="0,0,-0.2,0" Width="200" HorizontalAlignment="Center"/>
+            <TextBlock Text="Урон:" FontSize="15" HorizontalAlignment="Center" />
+            <TextBox Height="24" TextWrapping="Wrap" Text="{Binding Path=Damageadd}" Margin="0,0,-0.2,0" Width="200" HorizontalAlignment="Center"/>
+            <TextBlock Text="Время перезарядки:" FontSize="15" HorizontalAlignment="Center" />
+            <TextBox Height="24" TextWrapping="Wrap" Text="{Binding Path=Reloadadd}" Margin="0,0,-0.2,0" Width="200" HorizontalAlignment="Center"/>
+            <ToggleButton Content="Добавить" Margin="0,20,-0.2,0" Width="186" IsChecked="{Binding AddAbility}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28"/>
+            <TextBlock Text="Удаление выбранного элемента:" Margin="0,20,-0.2,0" FontSize="20"  />
+            <ToggleButton Content="Удалить" Margin="0,20,-0.2,0" Width="186" IsChecked="{Binding DeleteAbility}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28"/>
+            <TextBlock Text="{Binding Path=Result}" Margin="0,20,-0.2,0" FontSize="15" HorizontalAlignment="Center"  />
+        </StackPanel>
+
+    </Grid>
+</Window>
